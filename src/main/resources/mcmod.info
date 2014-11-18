@@ -1,0 +1,16 @@
+[
+{
+  "modid": "gilligancraft",
+  "name": "GilliganCraft",
+  "description": "Not a single luxury.  Well, maybe a few luxuries...",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "http://gilligancraft.com/",
+  "updateUrl": "",
+  "authorList": ["CromulentEponym", "spiky"],
+  "credits": "Forge/FML Team.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
