@@ -2,7 +2,7 @@ package com.gilligancraft.gilligancraft;
 
 import com.gilligancraft.gilligancraft.block.ModBlocks;
 import com.gilligancraft.gilligancraft.lib.Constants;
-import com.gilligancraft.gilligancraft.world.WorldGeneratorGilligancraft;
+import com.gilligancraft.gilligancraft.world.gen.feature.WorldGeneratorGilligancraft;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
