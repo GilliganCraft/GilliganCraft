@@ -12,7 +12,7 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 import cpw.mods.fml.common.IWorldGenerator;
 
 public class WorldGeneratorGilligancraft implements IWorldGenerator {
-	WorldGenBlackSand blackSand = new WorldGenBlackSand(ModBlocks.blackSandBlock, 7);
+	WorldGenBlackSand blackSand = new WorldGenBlackSand(ModBlocks.blockBlackSand, 7);
 
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world,
@@ -31,7 +31,6 @@ public class WorldGeneratorGilligancraft implements IWorldGenerator {
 	}
 
 	private void GenerateOverworld(Random random, int x, int z, World world) {
-		// this.addOreSpawn(ModBlocks.blackSandBlock, world, random, x, z, 6, 40, 3, 2, 112);
 		blackSand.generate(world, random, x, world.getTopSolidOrLiquidBlock(x, z), z);
 	}
 

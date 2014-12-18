@@ -10,9 +10,9 @@ public class GilliganCraftGuiFactory implements IModGuiFactory {
 
 	@Override
 	public void initialize(Minecraft minecraftInstance) {
-		
+
 	}
-	
+
 	@Override
 	public Class<? extends GuiScreen> mainConfigGuiClass() {
 		return GilliganCraftConfigGUI.class;
@@ -25,8 +25,7 @@ public class GilliganCraftGuiFactory implements IModGuiFactory {
 	}
 
 	@Override
-	public RuntimeOptionGuiHandler getHandlerFor(
-			RuntimeOptionCategoryElement element) {
+	public RuntimeOptionGuiHandler getHandlerFor(RuntimeOptionCategoryElement element) {
 		// TODO Auto-generated method stub
 		return null;
 	}

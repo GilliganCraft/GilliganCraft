@@ -27,8 +27,7 @@ public class WorldGenBlackSand extends WorldGenerator {
 	}
 
 	// By default, we'll do things the "right" way.
-	// If it is too slow, the user config (TODO) can allow a sloppier
-	// implementation
+	// If it is too slow, the user config provides options for alternative generation decisions
 	public WorldGenBlackSand(Block blockType, int radius) {
 		this(blockType, radius, GilliganCraft.allowIncorrectDecorations, GilliganCraft.cleanIncorrectDecorations);
 	}
@@ -50,27 +49,23 @@ public class WorldGenBlackSand extends WorldGenerator {
 							Block block = currentWorld.getBlock(i1, i2, j1);
 
 							if (block == Blocks.dirt || block == Blocks.grass) {
-								// If we're okay with incorrect decorations
-								// (like vanilla does), such as
-								// grass on sand (which works during decoration
-								// but is invalid afterwards)
-								// This is the fastest option
+								/*
+								 * If we're okay with incorrect decorations (like vanilla does), such as grass on sand
+								 * (which works during decoration but is invalid afterwards) This is the fastest option
+								 */
 								if (this.allowIncorrectDecorations) {
 									// Create the block
 									currentWorld.setBlock(i1, i2, j1, this.blockType, 0, 2);
 								} else {
-									// Clean up incorrect decorations. This is
-									// the slowest option.
+									// Clean up incorrect decorations. This is the slowest option.
 									if (this.cleanIncorrectDecorations) {
 										// Create the block
 										currentWorld.setBlock(i1, i2, j1, this.blockType, 0, 2);
 
-										// Get the block directly above the
-										// block we just placed
+										// Get the block directly above the block we just placed
 										block = currentWorld.getBlock(i1, i2 + 1, j1);
 
-										// If it is a plant, we have to
-										// clean/remove it
+										// If it is a plant, we have to clean/remove it
 										if (block instanceof IPlantable) {
 											currentWorld.setBlockToAir(i1, i2 + 1, j1);
 											if (GilliganCraft.modDebug) {
@@ -79,19 +74,14 @@ public class WorldGenBlackSand extends WorldGenerator {
 											}
 										}
 									} else {
-
-										// We don't care about invalid
-										// generation (a la vanilla MC)
-										// Only modification here is the last
-										// flag, which is 3 instead of 2
-										// 2 = Send change to Client, 1 = Update
-										// Block; We want both, so set flag = 3
-										// We don't want random decorations
-										// (grass, flowers, etc.) on this block,
-										// but we're not going to clean them up.
-										// This will simply pop the decoration
-										// and leave a floating entity.
-
+										/*
+										 * We don't care about invalid generation (a la vanilla MC). Only modification
+										 * here is the last flag, which is 3 instead of 2. 2 = Send change to Client, 1
+										 * = Update Block. We want both, so set flag = 3. We don't want random
+										 * decorations (grass, flowers, etc.) on this block, but we're not going to
+										 * clean them up. This will simply pop the decoration and leave a floating
+										 * entity on the ground.
+										 */
 										currentWorld.setBlock(i1, i2, j1, this.blockType, 0, 3);
 									}
 								}

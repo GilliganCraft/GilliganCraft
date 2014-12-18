@@ -3,6 +3,7 @@ package com.gilligancraft.gilligancraft;
 import net.minecraftforge.common.config.Configuration;
 
 import com.gilligancraft.gilligancraft.block.ModBlocks;
+import com.gilligancraft.gilligancraft.item.ModItems;
 import com.gilligancraft.gilligancraft.lib.Constants;
 import com.gilligancraft.gilligancraft.world.gen.feature.WorldGeneratorGilligancraft;
 
@@ -53,6 +54,7 @@ public class GilliganCraft {
 		// Save configuration to file
 		configFile.save();
 		ModBlocks.init();
+		ModItems.init();
 		GameRegistry.registerWorldGenerator(new WorldGeneratorGilligancraft(), 1);
 	}
 
